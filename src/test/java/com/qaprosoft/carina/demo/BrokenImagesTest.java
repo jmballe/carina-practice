@@ -2,6 +2,8 @@ package com.qaprosoft.carina.demo;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.demo.gui.pages.BrokenImagesPage;
+import com.zebrunner.carina.utils.Configuration;
+import com.zebrunner.carina.utils.R;
 import org.testng.Assert;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -11,6 +13,7 @@ public class BrokenImagesTest implements IAbstractTest {
 
     @BeforeSuite
     public void startDriver() {
+        R.CONFIG.put(Configuration.Parameter.URL.getKey(),"https://the-internet.herokuapp.com/broken_images" , true);
         brokenImgPage = new BrokenImagesPage(getDriver());
     }
 

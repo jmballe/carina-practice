@@ -2,12 +2,15 @@ package com.qaprosoft.carina.demo.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.invoke.MethodHandles;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ChallengingDOMPage extends AbstractPage {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
@@ -30,6 +33,18 @@ public class ChallengingDOMPage extends AbstractPage {
     @FindBy(xpath = "//div/script")
     private ExtendedWebElement canvasDrawingScript;
 
+
+    public String getTopButtonId(){
+        return topButton.getAttribute("id");
+    }
+
+    public String getMiddleButtonId(){
+        return middleButton.getAttribute("id");
+    }
+    public String getBottomButtonId(){
+        return bottomButton.getAttribute("id");
+    }
+
     public void clickTopButton(){
         LOGGER.info("Click top button.");
         topButton.click();
@@ -50,6 +65,20 @@ public class ChallengingDOMPage extends AbstractPage {
         return drawNumber;
     }
 
+    public List<ExtendedWebElement> getTableHeaders(){
+        return table.findExtendedWebElements(By.cssSelector("thead tr th"));
+    }
 
+    public List<String> getColumnN(int n){
+        if (n < 6 && n >= 0){
+            List<String> column = new ArrayList<>();
+            for(int i = 1;i <= 10;i++){
+                column.add(table.findExtendedWebElement(By.xpath("//tbody/tr[" + i + "]/td[" + (n+1) +"]")).getText());
+            }
+            return column;
+        } else {
+            return new ArrayList<String>();
+        }
+    }
 
 }
