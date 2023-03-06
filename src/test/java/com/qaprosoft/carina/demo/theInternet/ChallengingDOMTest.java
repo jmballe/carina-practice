@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo;
+package com.qaprosoft.carina.demo.theInternet;
 
 import com.amazonaws.regions.Regions;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
