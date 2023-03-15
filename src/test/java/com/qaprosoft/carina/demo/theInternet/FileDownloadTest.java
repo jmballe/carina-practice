@@ -1,7 +1,7 @@
 package com.qaprosoft.carina.demo.theInternet;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import com.qaprosoft.carina.demo.gui.pages.FileDownloadPage;
+import com.qaprosoft.carina.demo.gui.pages.theInternet.FileDownloadPage;
 import com.zebrunner.carina.utils.Configuration;
 import com.zebrunner.carina.utils.R;
 import org.openqa.selenium.chrome.ChromeOptions;

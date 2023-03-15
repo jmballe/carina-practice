@@ -1,7 +1,7 @@
 package com.qaprosoft.carina.demo.theInternet;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import com.qaprosoft.carina.demo.gui.pages.HoversPage;
+import com.qaprosoft.carina.demo.gui.pages.theInternet.HoversPage;
 import com.zebrunner.carina.utils.Configuration;
 import com.zebrunner.carina.utils.R;
 import org.slf4j.Logger;
@@ -41,6 +41,7 @@ public class HoversTest implements IAbstractTest {
     public void testCheckHoverableFirstElementClickable() throws InterruptedException {
         LOGGER.info("TESTING HOVER-ABLE ELEMENT IS CLICKABLE WHILE HOVER ACTIVE");
         hoversPage.open();
+        getDriver().manage().window().maximize();
         hoversPage.hoverFirstFigure();
         Assert.assertTrue(hoversPage.getFirstCaption().isVisible(), "Link must be clickable.");
     }

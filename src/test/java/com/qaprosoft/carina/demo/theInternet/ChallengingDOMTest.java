@@ -1,13 +1,10 @@
 package com.qaprosoft.carina.demo.theInternet;
 
-import com.amazonaws.regions.Regions;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import com.qaprosoft.carina.core.foundation.webdriver.DriverHelper;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.demo.gui.pages.ChallengingDOMPage;
+import com.qaprosoft.carina.demo.gui.pages.theInternet.ChallengingDOMPage;
 import com.zebrunner.carina.utils.Configuration;
 import com.zebrunner.carina.utils.R;
-import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
