@@ -1,0 +1,5 @@
+{
+  <#if body??>"body": "${body}",</#if>
+  <#if postId??>"postId": ${postId},</#if>
+  <#if userId??>"userId": ${userId} </#if>
+}
