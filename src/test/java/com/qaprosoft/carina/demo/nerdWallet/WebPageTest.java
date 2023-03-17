@@ -1,7 +1,9 @@
 package com.qaprosoft.carina.demo.nerdWallet;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import com.qaprosoft.carina.demo.gui.pages.needWallet.HomePage;
+import com.qaprosoft.carina.demo.gui.pages.nerdWallet.HomePage;
+import com.qaprosoft.carina.demo.gui.pages.nerdWallet.LoginModalPage;
+import com.qaprosoft.carina.demo.gui.pages.nerdWallet.SignUpPage;
 import com.zebrunner.carina.utils.Configuration;
 import com.zebrunner.carina.utils.R;
 import org.testng.Assert;
@@ -24,7 +26,7 @@ public class WebPageTest implements IAbstractTest {
     }
 
     @Test
-    public void testClickLoginButton() {
+    public void testClickSignUpButton() {
         homePage = new HomePage(getDriver());
         homePage.open();
         homePage.myNerdWalletButtonClick();
@@ -32,21 +34,28 @@ public class WebPageTest implements IAbstractTest {
     }
 
     @Test
-    public void testClickEmailLoginButton() {
+    public void testClickEmailSignUpButton() {
         homePage = new HomePage(getDriver());
         homePage.open();
         homePage.myNerdWalletButtonClick();
-        homePage.EmailLoginButtonClick();
-        Assert.assertTrue(homePage.getFirstNameBox().isVisible(), "First name box should be visible");
+        SignUpPage signUpPage = homePage.EmailSignUpButtonClick();
+        Assert.assertTrue(signUpPage.getFirstNameBox().isVisible(), "First name box should be visible");
     }
 
     @Test
-    public void testInsertFirstNameInBox() throws InterruptedException {
+    public void testLogin() {
         homePage = new HomePage(getDriver());
         homePage.open();
         homePage.myNerdWalletButtonClick();
-        homePage.EmailLoginButtonClick();
-        homePage.setFirstName("Tim");
-        Thread.sleep(2000);
+        LoginModalPage loginModalPage = homePage.loginButtonClick();
+        loginModalPage.inputEmail();
+        loginModalPage.inputPassword();
+        loginModalPage.clickContinue();
+        try{
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        Assert.assertTrue(homePage.getWelcomeMessage().isVisible(), "Welcome message should be visible.");
     }
 }
