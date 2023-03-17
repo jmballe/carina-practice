@@ -6,11 +6,18 @@ import com.qaprosoft.carina.demo.gui.pages.nerdWallet.LoginModalPage;
 import com.qaprosoft.carina.demo.gui.pages.nerdWallet.SignUpPage;
 import com.zebrunner.carina.utils.Configuration;
 import com.zebrunner.carina.utils.R;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import java.lang.invoke.MethodHandles;
+
 public class WebPageTest implements IAbstractTest {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+
     HomePage homePage = null;
 
     @BeforeSuite
